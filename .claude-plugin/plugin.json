@@ -15,11 +15,5 @@
     "nielsen-heuristics",
     "design",
     "audit"
-  ],
-  "skills": [
-    {
-      "name": "ux-webapp",
-      "path": "./skill"
-    }
   ]
 }

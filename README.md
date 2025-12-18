@@ -5,15 +5,16 @@ Professional UX tooling for Claude Code. A knowledge-based skill that gives Clau
 ## Structure
 
 ```
-skill/
-├── SKILL.md                    # Main skill definition
-├── reference/
-│   ├── HEURISTICS.md          # Nielsen's heuristics + severity scale
-│   └── CHECKLISTS.md          # Forms, a11y, navigation, responsive
-└── templates/
-    ├── UX_AUDIT.md            # Audit output template
-    ├── DESIGN_SPEC.md         # Implementation spec template
-    └── USABILITY_TEST.md      # User testing plan template
+skills/
+└── ux-webapp/
+    ├── SKILL.md                # Main skill definition
+    ├── reference/
+    │   ├── HEURISTICS.md       # Nielsen's heuristics + severity scale
+    │   └── CHECKLISTS.md       # Forms, a11y, navigation, responsive
+    └── templates/
+        ├── UX_AUDIT.md         # Audit output template
+        ├── DESIGN_SPEC.md      # Implementation spec template
+        └── USABILITY_TEST.md   # User testing plan template
 ```
 
 ## Installation
@@ -27,10 +28,10 @@ skill/
 
 ### Manual Installation
 
-Copy the `skill/` directory to your project's `.claude/skills/` folder:
+Copy the `skills/ux-webapp/` directory to your project's `.claude/skills/` folder:
 
 ```bash
-cp -r skill/ /path/to/project/.claude/skills/ux-webapp/
+cp -r skills/ux-webapp/ /path/to/project/.claude/skills/ux-webapp/
 ```
 
 ## What It Does
@@ -42,7 +43,7 @@ cp -r skill/ /path/to/project/.claude/skills/ux-webapp/
 - Usability test planning
 - Microcopy improvements
 
-See [`skill/README.md`](skill/README.md) for full documentation.
+See [`skills/ux-webapp/README.md`](skills/ux-webapp/README.md) for full documentation.
 
 ## License
 
