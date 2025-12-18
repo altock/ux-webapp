@@ -49,16 +49,17 @@ graph TD
 
 ## Issue Backlog (Prioritized)
 
-| ID | Location | Problem | Evidence | Heuristic | Sev | Recommendation | Acceptance Criteria |
-|----|----------|---------|----------|-----------|-----|----------------|---------------------|
-| 1 | Login form | Submit button shows no loading state during auth | Users click repeatedly, causing multiple requests | H1 Visibility / L4 Doherty | 3 | Add spinner and disable button during submit | Given credentials submitted, When auth is processing, Then button shows spinner and is disabled |
-| 2 | Error message | "Invalid credentials" doesn't specify email vs password | 60% of support tickets are password-related | H9 Error Recovery | 3 | Show "Email not found" vs "Incorrect password" separately | Given wrong password, When form submitted, Then error says "Incorrect password" with reset link |
-| 3 | Password field | No show/hide password toggle | Users with complex passwords mistype frequently | H3 User Control / H7 Flexibility | 2 | Add eye icon toggle to reveal password | Given password field, When user clicks eye icon, Then password text is visible |
-| 4 | Form | Tab order skips "Forgot password" link | Keyboard users cannot access reset flow | A11y WCAG 2.4.3 | 3 | Include link in tab order after password field | Given keyboard navigation, When user tabs through form, Then focus order is: email, password, forgot link, submit |
-| 5 | Submit button | Button is disabled with no explanation when form incomplete | Users don't know why they can't submit | H1 Visibility / H5 Error Prevention | 2 | Show helper text OR keep button enabled and validate on click | Given incomplete form, When user views submit, Then helper text shows "Enter email and password" |
-| 6 | SSO section | "Sign in with SSO" is below the fold on mobile | Mobile users don't discover SSO option | H6 Recognition / L2 Hick's Law | 2 | Move SSO above email/password form or make equally prominent | Given mobile viewport, When login page loads, Then SSO option is visible without scrolling |
+| ID | Location | Problem | Evidence | Principle | Sev | Impact | Confidence | Effort | Priority | Recommendation | Acceptance Criteria |
+|----|----------|---------|----------|-----------|-----|--------|------------|--------|----------|----------------|---------------------|
+| 1 | Login form | Submit button shows no loading state during auth | Users click repeatedly, causing multiple requests | H1 / L4 | 3 | 4 | 4 | 2 | 8.0 | Add spinner and disable button during submit | Given credentials submitted, When auth is processing, Then button shows spinner and is disabled |
+| 2 | Error message | "Invalid credentials" doesn't specify email vs password | 60% of support tickets are password-related | H9 | 3 | 4 | 3 | 2 | 6.0 | Show "Email not found" vs "Incorrect password" separately | Given wrong password, When form submitted, Then error says "Incorrect password" with reset link |
+| 3 | Password field | No show/hide password toggle | Users with complex passwords mistype frequently | H3 / H7 | 2 | 3 | 3 | 2 | 4.5 | Add eye icon toggle to reveal password | Given password field, When user clicks eye icon, Then password text is visible |
+| 4 | Form | Tab order skips "Forgot password" link | Keyboard users cannot access reset flow | WCAG 2.4.3 | 3 | 3 | 3 | 3 | 3.0 | Include link in tab order after password field | Given keyboard navigation, When user tabs through form, Then focus order is: email, password, forgot link, submit |
+| 5 | Submit button | Button is disabled with no explanation when form incomplete | Users don't know why they can't submit | H1 / H5 | 2 | 2 | 3 | 3 | 2.0 | Show helper text OR keep button enabled and validate on click | Given incomplete form, When user views submit, Then helper text shows "Enter email and password" |
+| 6 | SSO section | "Sign in with SSO" is below the fold on mobile | Mobile users don't discover SSO option | H6 / L2 | 2 | 2 | 2 | 3 | 1.3 | Move SSO above email/password form or make equally prominent | Given mobile viewport, When login page loads, Then SSO option is visible without scrolling |
 
-**Severity Scale:** 0=Not a problem, 1=Cosmetic, 2=Minor, 3=Major, 4=Critical
+**Severity Scale:** 0=Not a problem, 1=Cosmetic, 2=Minor, 3=Major, 4=Critical  
+**Scoring Scale (Impact/Confidence/Effort):** 1=Low, 3=Medium, 5=High
 
 ---
 

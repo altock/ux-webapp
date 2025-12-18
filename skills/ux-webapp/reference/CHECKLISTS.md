@@ -53,7 +53,7 @@
 ## Feedback & States
 
 ### Loading States
-- [ ] Show progress or skeleton for operations > 300ms
+- [ ] Show progress or skeleton for operations > 400ms
 - [ ] Avoid layout shift when content loads
 - [ ] Indicate if operation can be cancelled
 - [ ] Consider optimistic UI for low-risk actions

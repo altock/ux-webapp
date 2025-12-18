@@ -53,15 +53,16 @@ _List any assumptions made due to missing information._
 
 ## Issue Backlog (Prioritized)
 
-| ID | Location | Problem | Evidence | Heuristic | Sev | Recommendation | Acceptance Criteria |
-|----|----------|---------|----------|-----------|-----|----------------|---------------------|
-| 1 | | | | | | | |
-| 2 | | | | | | | |
-| 3 | | | | | | | |
-| 4 | | | | | | | |
-| 5 | | | | | | | |
+| ID | Location | Problem | Evidence | Principle | Sev | Impact | Confidence | Effort | Priority | Recommendation | Acceptance Criteria |
+|----|----------|---------|----------|-----------|-----|--------|------------|--------|----------|----------------|---------------------|
+| 1 | | | | | | | | | | | |
+| 2 | | | | | | | | | | | |
+| 3 | | | | | | | | | | | |
+| 4 | | | | | | | | | | | |
+| 5 | | | | | | | | | | | |
 
-**Severity Scale:** 0=Not a problem, 1=Cosmetic, 2=Minor, 3=Major, 4=Critical
+**Severity Scale:** 0=Not a problem, 1=Cosmetic, 2=Minor, 3=Major, 4=Critical  
+**Scoring Scale (Impact/Confidence/Effort):** 1=Low, 3=Medium, 5=High
 
 ---
 

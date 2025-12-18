@@ -158,7 +158,7 @@ The average person can only keep 7 (± 2) items in their working memory.
 
 ### L4: Doherty Threshold
 Productivity soars when a computer and its users interact at a pace (<400ms) that ensures neither has to wait on the other.
-**Action:** Optimistic UI is mandatory for freq actions. Show skeletons/spinners immediately (0ms delay) for anything >200ms.
+**Action:** Optimistic UI is mandatory for freq actions. For operations expected >400ms, change UI state immediately and show skeletons/spinners within 100ms.
 
 ### L5: Jakob's Law
 Users spend most of their time on other sites. They expect your site to work the same way as all the other sites they know.

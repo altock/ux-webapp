@@ -29,7 +29,7 @@ Use this skill when the user asks for:
 - Ask at most **5** clarifying questions only if the answers would change recommendations materially.
 - **Default to Quick UX Pass** (lightweight feedback). Only escalate to full audits/specs when explicitly requested or clearly warranted.
 - Avoid "pixel" design. Provide **interaction rules + layout intent** and **component guidance**.
-- **Capture your own screenshots** when browser tools are available (see Visual Inspection below).
+- **Capture your own screenshots** when browser tools are available (see Visual Inspection below). If visuals aren't available after requesting, proceed with a code-only review and label it clearly.
 
 ## Visual Inspection
 
@@ -50,8 +50,9 @@ If you have access to browser/chrome-tester MCP tools:
 If you cannot capture screenshots yourself:
 
 1. **Ask the user for screenshots** of the relevant screens/flows
-2. **Clearly label** any advice as "based on code review only" with lower confidence
-3. **Focus on structural issues** (missing states, error handling, accessibility attributes)
+2. If screenshots aren't provided in the same turn, **proceed with a code-only review** and mark it as lower confidence
+3. **Clearly label** any advice as "based on code review only" with lower confidence
+4. **Focus on structural issues** (missing states, error handling, accessibility attributes)
 
 **Do not hallucinate visual details.** If you haven't seen it, say so.
 
@@ -91,9 +92,9 @@ Ask about context if unclear.
 
 ## Issue Reporting Format
 
-| ID | Location | Problem | Evidence | Heuristic | Sev | Recommendation | Acceptance Criteria |
-|----|----------|---------|----------|-----------|-----|----------------|---------------------|
-| 1  | Login    | Submit button disabled with no explanation | Users click repeatedly | H5 / Doherty | 3 | Show helper text | Given incomplete form, When user views submit, Then helper shows required fields |
+| ID | Location | Problem | Evidence | Principle | Sev | Impact | Confidence | Effort | Priority | Recommendation | Acceptance Criteria |
+|----|----------|---------|----------|-----------|-----|--------|------------|--------|----------|----------------|---------------------|
+| 1  | Login    | Submit button disabled with no explanation | Users click repeatedly | H5 / L4 | 3 | 3 | 4 | 2 | 6.0 | Show helper text | Given incomplete form, When user views submit, Then helper shows required fields |
 
 **Severity Scale (0-4):**
 - 0: Not a problem / nit

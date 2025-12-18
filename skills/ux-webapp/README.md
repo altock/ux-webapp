@@ -33,19 +33,7 @@ Add the skill path to your Claude Desktop configuration.
 
 ## Usage
 
-### Slash Commands
-
-The skill provides three slash commands for direct invocation:
-
-| Command | Use Case |
-|---------|----------|
-| `/ux-audit` | Run a UX audit on a screen, flow, or codebase |
-| `/design-spec` | Create an implementation-ready design specification |
-| `/usability-test` | Create a usability test plan |
-
-### Natural Language
-
-You can also ask Claude for UX help directly:
+Just ask Claude for UX help:
 
 - "Can you UX-audit our signup flow?"
 - "Design the flow for creating a project and inviting teammates"
@@ -59,13 +47,8 @@ Claude will automatically use the skill's workflow, reference materials, and tem
 
 ```
 skills/ux-webapp/
-├── SKILL.md                    # Core skill definition (~130 lines)
+├── SKILL.md                    # Core skill definition
 ├── README.md                   # This file
-├── .claude/
-│   └── commands/
-│       ├── ux-audit.md         # /ux-audit command
-│       ├── design-spec.md      # /design-spec command
-│       └── usability-test.md   # /usability-test command
 ├── reference/
 │   ├── HEURISTICS.md          # Nielsen's 10 heuristics + cognitive laws
 │   ├── CHECKLISTS.md          # Forms, a11y, navigation, responsive checklists
@@ -89,7 +72,7 @@ skills/ux-webapp/
 - 4: Critical (fix immediately)
 
 ### Issue Reporting Format
-Issues are reported with: Location, Problem, Evidence, Heuristic, Severity, Recommendation, and Acceptance Criteria.
+Issues are reported with: Location, Problem, Evidence, Principle (heuristic/law/WCAG), Severity, Impact, Confidence, Effort, Priority, Recommendation, and Acceptance Criteria.
 
 ### Principle-Based Rationale
 Every recommendation cites a heuristic (H1-H10) or cognitive law (L1-L5). No "vibes."

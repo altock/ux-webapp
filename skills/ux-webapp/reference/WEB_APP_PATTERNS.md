@@ -30,7 +30,7 @@ Don't leak information: show 404 instead of 403 when hiding existence matters.
 
 Users perceive systems as fast when response is < 400ms. For longer operations:
 - Show immediate visual feedback (button state change)
-- Add skeleton/spinner within 100ms
+- Add skeleton/spinner within 100ms for operations expected >400ms
 - For > 3s operations, show progress or explanatory text
 
 ---

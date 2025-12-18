@@ -94,6 +94,7 @@ For each issue, specify:
 
 - **Principle-Based Rationale**: You MUST cite a Law or Heuristic (e.g., "Violates Hick's Law," "Fails YC Obviousness Test"). Do not use "vibes."
 - **Impact**: drop-off, errors, support load, trust
+- **Confidence**: how strong the evidence is (analytics, screenshots, user reports)
 - **Effort/risk**: engineering + design complexity
 - **Priority**: Impact x Confidence / Effort
 
