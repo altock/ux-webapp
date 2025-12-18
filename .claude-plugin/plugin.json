@@ -1,0 +1,26 @@
+{
+  "name": "ux-webapp",
+  "version": "1.0.0",
+  "description": "Professional UX tooling for web applications. Provides structured workflows for usability audits, accessibility reviews, design specs, and user testing using Nielsen's heuristics and WCAG 2.2 AA standards.",
+  "author": {
+    "name": "altock"
+  },
+  "repository": "https://github.com/altock/ux-skill",
+  "license": "MIT",
+  "keywords": [
+    "ux",
+    "usability",
+    "accessibility",
+    "wcag",
+    "nielsen-heuristics",
+    "design",
+    "audit"
+  ],
+  "category": "productivity",
+  "skills": [
+    {
+      "name": "ux-webapp",
+      "path": "./skill"
+    }
+  ]
+}

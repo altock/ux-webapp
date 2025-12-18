@@ -1,0 +1,30 @@
+{
+  "name": "altock-ux",
+  "owner": {
+    "name": "altock",
+    "email": "altock@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "UX and accessibility tooling for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "ux-webapp",
+      "source": ".",
+      "description": "Professional UX tooling for web applications. Usability audits, accessibility reviews, design specs, and user testing.",
+      "version": "1.0.0",
+      "author": {
+        "name": "altock"
+      },
+      "category": "productivity",
+      "keywords": [
+        "ux",
+        "usability",
+        "accessibility",
+        "wcag",
+        "design"
+      ]
+    }
+  ]
+}
