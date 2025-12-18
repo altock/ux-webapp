@@ -140,7 +140,16 @@ Create a flow map with:
 - Failure modes per step
 - Where users need to decide vs. just execute
 
-Deliver as bullets or a simple diagram-like indentation.
+
+Deliver as a **Mermaid diagram** (sequence or flowchart) whenever possible to expose logic gaps.
+```mermaid
+graph TD
+    A[Entry] --> B{Auth?}
+    B -- No --> C[Login]
+    B -- Yes --> D[Dashboard]
+```
+If text is necessary, use strict indentation.
+
 
 ## Step 3: Evaluate
 
@@ -156,16 +165,24 @@ Apply the 10 heuristics with severity scoring (see `reference/HEURISTICS.md`)
 - Targets: reasonable touch/click target sizes
 - Motion: avoid essential meaning conveyed only via animation
 
+
 ### Content Quality
 - Clarity, brevity, consistency
 - Terminology matches user mental model
 - Tone appropriate for context
 
+### The Startup Lens (YC/PG)
+- **Time to Value**: How fast is the "Aha!"?
+- **Simplicity**: Is it "Radically Simple" or just decorated?
+- **Obviousness**: Does it pass the "Mom Test"?
+
 ## Step 4: Synthesize and Prioritize
 
 For each issue, specify:
 
-- **Root cause**: why it's happening
+
+- **Principle-Based Rationale**: You MUST cite a Law or Heuristic (e.g., "Violates Hick's Law," "Fails YC Obviousness Test"). Do not use "vibes."
+
 - **Impact**: drop-off, errors, support load, trust
 - **Effort/risk**: engineering + design complexity
 - **Priority**: Impact x Confidence / Effort
@@ -205,7 +222,8 @@ For audits, output issues in this format:
 
 | ID | Location | Problem | Evidence | Heuristic | Sev | Recommendation | Acceptance Criteria |
 |----|----------|---------|----------|-----------|-----|----------------|---------------------|
-| 1  | Login    | Submit button disabled with no explanation | Users click repeatedly | H5: Error prevention | 3 | Show helper text explaining requirements | Given incomplete form, When user views submit, Then helper text shows "Enter email and password" |
+| 1  | Login    | Submit button disabled with no explanation | Users click repeatedly | H5 / Doherty Threshold | 3 | Show helper text | Given incomplete form, When user views submit, Then helper text shows "Enter email and password" |
+
 
 **Severity Scale (0-4):**
 - 0: Not a problem / nit

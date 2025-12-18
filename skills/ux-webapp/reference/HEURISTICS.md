@@ -137,3 +137,54 @@ For rapid assessment, ask these questions:
 8. **Clarity**: Is only relevant information shown?
 9. **Recovery**: Do error messages explain how to fix the problem?
 10. **Help**: Is contextual help available where needed?
+
+---
+
+## Cognitive Laws of UX (Bio-Cost Optimization)
+
+Optimize for the human brain's limitations.
+
+### L1: Fitts's Law
+The time to acquire a target is a function of the distance to and size of the target.
+**Action:** Make primary actions large and close to the cursor/thumb.
+
+### L2: Hick's Law
+The time it takes to make a decision increases with the number and complexity of choices.
+**Action:** Minimize choices. If you have >5 options, group them or hide secondary ones.
+
+### L3: Miller's Law
+The average person can only keep 7 (± 2) items in their working memory.
+**Action:** Chunk information. Don't make users remember things from screen A to use on screen B.
+
+### L4: Doherty Threshold
+Productivity soars when a computer and its users interact at a pace (<400ms) that ensures neither has to wait on the other.
+**Action:** Optimistic UI is mandatory for freq actions. Show skeletons/spinners immediately (0ms delay) for anything >200ms.
+
+### L5: Jakob's Law
+Users spend most of their time on other sites. They expect your site to work the same way as all the other sites they know.
+**Action:** Don't reinvent the wheel. Use standard patterns for standard problems (search, nav, profiles).
+
+---
+
+## The Startup Lens (YC/Paul Graham Style)
+
+Apply these filters for products in the 0-to-1 phase.
+
+### S1: Time to Value (TTV)
+"How quickly can the user get the dopamine hit?"
+**Check:**
+- Can I try it without signing up?
+- Can I sign up with 1 click?
+- Do I land directly in the "doing" state, or an empty state?
+
+### S2: Radical Simplicity ("Make something people want")
+Solve the problem. Don't decorate the solution.
+**Check:**
+- Remove every element that doesn't effectively advance the core job-to-be-done.
+- If it looks like a "Dribbble redesign," it's probably wrong.
+
+### S3: Obviousness ("The Mom Test")
+If you need a tooltip tour to explain it, you failed.
+**Check:**
+- Is the primary action the most visually obvious thing on the page?
+- Do labels say exactly what they do? (e.g., "Save" vs "Commit Transaction")
