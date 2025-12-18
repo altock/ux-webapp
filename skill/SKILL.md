@@ -1,0 +1,204 @@
+---
+name: ux-webapp
+description: UX audit + design spec for web apps. Use for usability reviews, accessibility checks, user flows, microcopy, wireframes, and implementation-ready acceptance criteria.
+---
+
+# UX for Web Apps
+
+This skill helps you do high-quality UX work on web applications:
+
+- **Evaluate** existing UX (heuristics + accessibility + flows)
+- **Propose** concrete improvements (interaction + IA + content)
+- **Produce** implementation-ready specs (states, rules, acceptance criteria, analytics)
+- **Validate** with lightweight testing plans
+
+## When to Use This Skill
+
+Use this skill when the user asks for:
+
+- UX review / audit / heuristic evaluation / usability critique
+- Improve onboarding, forms, settings, dashboards, funnels
+- Redesign a flow (signup, checkout, search, CRUD, etc.)
+- Accessibility review (keyboard nav, focus, screen reader basics)
+- Wireframes (textual), user flows, information architecture, microcopy
+- "Write the spec" / "Define acceptance criteria" for UX changes
+
+## Default Operating Mode
+
+- Do **not** block on missing context. Make minimal assumptions, label them, and proceed.
+- Ask at most **5** clarifying questions only if the answers would change recommendations materially.
+- Prefer **conservative, conventional** patterns unless the user explicitly wants novelty.
+- Avoid "pixel" design. Provide **interaction rules + layout intent** and **component guidance**.
+- If you can inspect the app (screenshots/URL/code), do so. If not, request what you need.
+
+## Decision Tree
+
+**What did the user provide?**
+
+| Input | Action |
+|-------|--------|
+| Screenshots / URL / flow description | Produce a UX audit + prioritized fixes |
+| Feature idea / problem statement only | Propose the flow + wireframe + spec |
+| Access to codebase | Inventory pages/routes/components, then audit/spec |
+
+## Output Formats
+
+Pick the smallest format that satisfies the request:
+
+1. **Quick UX Pass** (10-20 min): Top 5-10 issues + fixes with severity and rationale
+2. **UX Audit** (deep): Flow map + issue backlog + prioritized roadmap (use `templates/UX_AUDIT.md`)
+3. **Design Spec**: Interaction rules, states, copy, acceptance criteria, analytics (use `templates/DESIGN_SPEC.md`)
+4. **Validation Plan**: Usability test script + tasks + success criteria (use `templates/USABILITY_TEST.md`)
+
+## Reference Materials
+
+- Heuristics + severity scale: `reference/HEURISTICS.md`
+- Checklists (forms, nav, a11y, responsive): `reference/CHECKLISTS.md`
+
+---
+
+# Workflow
+
+## Step 0: Minimal Intake
+
+If not provided, ask up to 5 questions:
+
+1. Primary user + primary job-to-be-done
+2. The "money path" (or core success metric)
+3. Target devices (desktop-first? mobile-heavy?)
+4. Known pain points (support tickets, drop-offs, complaints)
+5. Constraints: design system? brand? engineering constraints?
+
+Then proceed even if unanswered.
+
+## Step 1: Inventory
+
+Goal: list key surfaces + states.
+
+- Primary pages/routes
+- Key flows (happy path + critical edge cases)
+- Reusable components (forms, modals, tables, nav, toasts)
+- States: loading/empty/error/permission-denied/offline
+
+If you have codebase access:
+- Read README + runbook
+- Identify routing and main layouts
+- Locate component library/design tokens
+- Locate API error handling and auth boundaries (401/403)
+
+## Step 2: Task-First Flow Mapping
+
+Create a flow map with:
+
+- Steps
+- User intent per step
+- System feedback per step
+- Failure modes per step
+- Where users need to decide vs. just execute
+
+Deliver as bullets or a simple diagram-like indentation.
+
+## Step 3: Evaluate
+
+Use three lenses:
+
+### Heuristics (Nielsen)
+Apply the 10 heuristics with severity scoring (see `reference/HEURISTICS.md`)
+
+### Accessibility
+- Keyboard: tab order, focus visibility, no traps
+- Labels: form fields have labels, icons have accessible names
+- Contrast: sufficient color contrast, non-color cues for status
+- Targets: reasonable touch/click target sizes
+- Motion: avoid essential meaning conveyed only via animation
+
+### Content Quality
+- Clarity, brevity, consistency
+- Terminology matches user mental model
+- Tone appropriate for context
+
+## Step 4: Synthesize and Prioritize
+
+For each issue, specify:
+
+- **Root cause**: why it's happening
+- **Impact**: drop-off, errors, support load, trust
+- **Effort/risk**: engineering + design complexity
+- **Priority**: Impact x Confidence / Effort
+
+## Step 5: Propose Fixes as Rules, Not Vibes
+
+For each fix, specify:
+
+- **Interaction rules**: what happens on click/submit/back/escape
+- **States**: loading/success/error/empty/disabled
+- **Copy**: microcopy and error messages (specific rewrites)
+- **Layout intent**: information hierarchy, grouping, spacing intent
+- **Component guidance**: reuse existing components; avoid one-offs
+- **Analytics hooks**: events and properties to track
+
+## Step 6: Spec + Acceptance Criteria
+
+Write acceptance criteria that are testable:
+
+- Given/When/Then format
+- Include edge cases (timeouts, 401/403, validation, retries)
+- Include accessibility requirements (keyboard + focus + labels)
+- Include analytics requirements (event names + properties)
+
+## Step 7: Validation Plan
+
+If changes are meaningful:
+
+- 5-user usability test (30 min each) with 3-6 tasks
+- Define success: task success rate, time-on-task, critical errors, self-reported confidence
+
+---
+
+# Issue Reporting Format
+
+For audits, output issues in this format:
+
+| ID | Location | Problem | Evidence | Heuristic | Sev | Recommendation | Acceptance Criteria |
+|----|----------|---------|----------|-----------|-----|----------------|---------------------|
+| 1  | Login    | Submit button disabled with no explanation | Users click repeatedly | H5: Error prevention | 3 | Show helper text explaining requirements | Given incomplete form, When user views submit, Then helper text shows "Enter email and password" |
+
+**Severity Scale (0-4):**
+- 0: Not a problem / nit
+- 1: Cosmetic; doesn't impede task completion
+- 2: Minor; causes friction or mild error risk
+- 3: Major; frequently blocks tasks or causes serious mistakes
+- 4: Critical; prevents task completion, causes data loss, or creates severe trust/safety issues
+
+---
+
+# Web App Specific Considerations
+
+Apply when relevant:
+
+- **Auth boundaries**: 401 vs 403 vs 404 vs "no access" should be user-comprehensible
+- **API latency**: always provide feedback; avoid "dead UI"; use skeletons/spinners intentionally
+- **Optimistic UI**: only when rollback is safe and understandable
+- **Forms**: inline validation, preserve inputs on error, focus management on submit errors
+- **Deep links**: URL should represent state when it matters (filters, selected tabs, entities)
+- **Errors**: human-readable messages; include retry; log correlation ID where appropriate
+
+---
+
+# Example Triggering Requests
+
+- "Can you UX-audit our signup flow?"
+- "Rewrite this settings page to be less confusing."
+- "Design the flow for creating a project and inviting teammates."
+- "Our users keep failing at importing CSVs—fix the UX."
+- "Make this dashboard accessible and keyboard-friendly."
+
+---
+
+# Deliverable Checklist
+
+When responding, always deliver:
+
+1. A prioritized list of issues/fixes OR a proposed flow/spec
+2. Concrete acceptance criteria
+3. Any assumptions you made (labeled clearly)

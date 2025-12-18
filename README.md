@@ -1,18 +1,53 @@
-# ux-mcp-skill
+# UX Skill for Claude
 
-An MCP server (“Claude skill”) that helps with UX work on web apps by providing:
+Professional UX tooling for Claude. Two implementations available:
 
-- **Tools** for UI inventory extraction, quick accessibility audits (axe-core), and readability linting.
-- **Resources** (heuristics, checklists, templates) you can reference while designing/reviewing.
-- **Prompts** that standardize UX critique, usability test plans, and microcopy variants.
+## 1. Claude Skill Plugin (`skill/`)
 
-## What you get
+A knowledge-based skill that gives Claude structured UX workflows, reference materials, and templates. **Recommended for most users.**
+
+```
+skill/
+├── SKILL.md                    # Main skill definition
+├── reference/
+│   ├── HEURISTICS.md          # Nielsen's heuristics + severity scale
+│   └── CHECKLISTS.md          # Forms, a11y, navigation, responsive
+└── templates/
+    ├── UX_AUDIT.md            # Audit output template
+    ├── DESIGN_SPEC.md         # Implementation spec template
+    └── USABILITY_TEST.md      # User testing plan template
+```
+
+### Installation
+
+Copy the `skill/` directory to your project's `.claude/skills/` folder:
+
+```bash
+cp -r skill/ /path/to/project/.claude/skills/ux-webapp/
+```
+
+### What It Does
+
+- UX audits with Nielsen heuristics
+- Design specs with acceptance criteria
+- Accessibility reviews (WCAG 2.2 AA)
+- User flow design and wireframes
+- Usability test planning
+- Microcopy improvements
+
+See [`skill/README.md`](skill/README.md) for full documentation.
+
+---
+
+## 2. MCP Server (`src/`)
+
+An executable MCP server with tools for automated analysis. Use this if you want programmatic HTML analysis.
 
 ### Tools
 
-- `ux_extract_ui_inventory`: Parse HTML (URL/file/raw) into a structured list of headings, links, buttons, forms, images, and quick UX issues.
-- `ux_accessibility_axe_audit`: Static axe-core audit in JSDOM (good for quick checks; verify in a real browser for full coverage).
-- `ux_readability_lint`: Readability metrics (Flesch) + long-sentence flags from raw text or extracted HTML body text.
+- `ux_extract_ui_inventory` - Parse HTML into structured inventory (headings, links, buttons, forms, issues)
+- `ux_accessibility_axe_audit` - Run axe-core accessibility audit
+- `ux_readability_lint` - Compute readability metrics (Flesch scores)
 
 ### Resources
 
@@ -27,65 +62,33 @@ An MCP server (“Claude skill”) that helps with UX work on web apps by provid
 - `ux-usability-test-plan`
 - `ux-microcopy-variants`
 
-## Install
+### Installation
 
 ```bash
 npm install
 ```
 
-## Run (manual smoke test)
-
-```bash
-npm start
-```
-
-It will wait for an MCP client over stdio (Claude Desktop will spawn it for you).
-
-## Connect to Claude Desktop
-
-1. In Claude Desktop: **Settings → Developer → Edit Config**
-2. Add a server entry pointing at this repo’s `src/index.js` (absolute path required).
-
-### macOS example
-
-Config file location:
-
-- `~/Library/Application Support/Claude/claude_desktop_config.json`
-
-Example config:
+Add to Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 
 ```json
 {
   "mcpServers": {
     "ux": {
       "command": "node",
-      "args": ["/Users/YOUR_USER/code/uxSkill/src/index.js"]
+      "args": ["/path/to/ux-skill/src/index.js"]
     }
   }
 }
 ```
 
-Restart Claude Desktop. You should see the hammer icon and the `ux_*` tools.
+### Limitations
 
-### Windows notes
+- Accessibility audit uses JSDOM (no JavaScript execution)
+- Color contrast checks disabled (JSDOM can't compute styles)
+- Treat results as quick signals; verify in a real browser
 
-Config file location:
+---
 
-- `%APPDATA%\\Claude\\claude_desktop_config.json`
+## License
 
-### Logs (macOS)
-
-```bash
-tail -n 50 -f ~/Library/Logs/Claude/mcp*.log
-```
-
-## Example asks (in Claude)
-
-- “Run `ux_extract_ui_inventory` on my login page URL and tell me the top 5 UX risks.”
-- “Run `ux_accessibility_axe_audit` on this HTML and summarize the highest-impact issues.”
-- “Here are 3 error messages—use `ux_readability_lint` and rewrite them to be clearer.”
-
-## Notes / limitations
-
-- The accessibility audit uses **JSDOM** (no page JavaScript runs). Treat it as a fast signal, not a final verdict.
-- `color-contrast` is disabled by default because JSDOM can’t reliably compute styles/colors.
+MIT
