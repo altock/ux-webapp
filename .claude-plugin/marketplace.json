@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "ux-webapp",
-      "source": "./",
+      "source": "./.claude/skills/ux-webapp",
       "description": "Professional UX tooling for web applications. Usability audits, accessibility reviews, design specs, and user testing.",
       "version": "1.0.0",
       "author": {
