@@ -15,7 +15,8 @@
       "description": "Professional UX tooling for web applications. Usability audits, accessibility reviews, design specs, and user testing.",
       "version": "1.0.0",
       "author": {
-        "name": "altock"
+        "name": "altock",
+        "email": "altock@users.noreply.github.com"
       },
       "category": "productivity",
       "keywords": [
